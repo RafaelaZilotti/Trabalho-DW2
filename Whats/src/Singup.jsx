@@ -31,7 +31,7 @@ async function CriarUsuario() {
 
             // Se der erro no Supabase, não redireciona
             if (error) {
-              alert("Erro ao criar usuário: " + error.message);//dar uma melhorada nisso aq depois
+              alert("Erro ao criar usuário: " + error.message);//dar uma
               return;
             }
 
