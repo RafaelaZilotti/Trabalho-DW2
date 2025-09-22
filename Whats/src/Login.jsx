@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Login(){
-    
+    const navigate = useNavigate()
+
     return(
             <>
                 <h1>Login</h1>
@@ -12,7 +14,7 @@ function Login(){
                 <button>esqueceu a senha?</button>
                 <button>Login</button>
                 <p>Novo usuário?</p>
-                <button>Singup</button>
+                <button onClick={() => navigate("/Singup")}>Singup</button>
             </>
     )
 }
