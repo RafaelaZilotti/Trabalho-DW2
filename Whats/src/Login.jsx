@@ -18,8 +18,8 @@ function Login(){
         if (error) {
             alert("Erro ao fazer login: " + error.message);//Fazer tratamento de erro
         } else {
-            alert("Login feito com sucesso!");
-            navigate("/GeradorDeLink"); // ou qualquer página protegida
+            const userId = data.user.id; // pega o ID do usuário logado
+            navigate(`/GeradorDeLink/${userId}`);
         }
     } catch (err) {
         console.log(err);
