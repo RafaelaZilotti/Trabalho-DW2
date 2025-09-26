@@ -22,6 +22,7 @@ async function CriarUsuario() {
           data: {
             display_name: NomeUsuario   
           }
+
         }
       });
 
@@ -36,6 +37,14 @@ async function CriarUsuario() {
       console.error("Erro inesperado:", err);
       alert("Erro inesperado ao criar usuário!");
     }
+
+    const userId = data.user.id;//UUID do novo usuario
+
+      const { data: agendaData, error:agendaError} = await supabase
+      .from ('agenda')
+      .insert([{id_usuario: userId}]);
+
+      
   }
 }
 
