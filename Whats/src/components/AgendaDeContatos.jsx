@@ -1,55 +1,49 @@
+// AgendaDeContatos.jsx
 import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
 import ListaDeContatos from './ListaDeContatos'
 
 function AgendaDeContatos() {
   const [lista_contatos, setLista_contatos] = useState([])
-  const [contato, setContato] = useState({})
   const [nome_contato, setNome_contato] = useState("")
   const [numero_contato, setNumero_contato] = useState("")
   const [user, setUser] = useState(null) // usuário logado
+  const [novoContato, setNovoContato] = useState(null) // para avisar ListaDeContatos
 
+  // pega usuário logado
   useEffect(() => {
     async function getUser() {
       const { data, error } = await supabase.auth.getUser()
-      if (data?.user) {
-        setUser(data.user)
-      }
+      if (data?.user) setUser(data.user)
     }
     getUser()
   }, [])
 
-  function AddLista(novoContato) {
-    setContato(novoContato) // guarda o último contato
-    setLista_contatos([...lista_contatos, novoContato]) // adiciona na lista local
-  }
+  // zera novoContato sempre que o usuário muda
+  useEffect(() => {
+    setNovoContato(null)
+  }, [user])
 
+  // salvar contato
   async function SalvarAgenda() {
     if (nome_contato !== "" && numero_contato !== "" && user) {
-      const novoContato = {
+      const contato = {
         nome: nome_contato,
         numero: numero_contato.replace(/\D/g, ""),
-        idUsuario: user.id // nome da coluna no Supabase
+        idUsuario: user.id
       }
 
-      // Atualiza lista local chamando AddLista
-      AddLista(novoContato)
-
-      // Salvar no Supabase e retornar o registro inserido
+      // salva no Supabase
       const { data, error } = await supabase
         .from("agenda")
-        .insert([novoContato])
-        .select() // garante que data seja um array com id
+        .insert([contato])
+        .select() // garante que data tenha o id gerado
 
       if (error) {
         console.error("Erro ao salvar:", error)
       } else {
         console.log("Contato salvo:", data)
-        // Atualiza a lista local com o id retornado do Supabase
-        setLista_contatos(prev => [
-          ...prev.filter(c => c !== novoContato), // remove versão sem id
-          ...data
-        ])
+        setNovoContato(data[0])       // envia para ListaDeContatos
         setNome_contato("")
         setNumero_contato("")
       }
@@ -82,7 +76,7 @@ function AgendaDeContatos() {
       </button>
 
       <p>Seus Contatos ({lista_contatos.length})</p>
-      <ListaDeContatos lista={lista_contatos} /> 
+      <ListaDeContatos userId={user?.id} novoContato={novoContato} />
     </>
   )
 }
