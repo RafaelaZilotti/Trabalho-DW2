@@ -1,18 +1,14 @@
 import { useState } from "react";
 import AgendaDeContatos from './components/AgendaDeContatos';
 import { useParams } from "react-router-dom";
-//import {useMask} from "react-hook-mask"
 
 
 function App() {
 
   const [count, setCount] = useState(0);
-  const { id } = useParams(); // pega o ID da URL
   const [telefone, setTelefone] = useState("")
   const[mensagem,setMensagem] = useState("")
   const[linkfinal,setLinkfinal] = useState("")
-
-  //const mask = useMask("(99)99999-9999")
 
   function Link(){
     if(telefone != ""){

@@ -22,7 +22,6 @@ async function CriarUsuario() {
           data: {
             display_name: NomeUsuario   
           }
-
         }
       });
 
@@ -31,22 +30,20 @@ async function CriarUsuario() {
         return;
       }
 
-      alert("Conta criada com sucesso!");
-      VoltarLogin();
+      // Verifica se o usuário foi criado
+      if (!data || !data.user) {
+        alert("Erro: usuário não criado corretamente!");
+        return;
+      }
+
+
     } catch (err) {
       console.error("Erro inesperado:", err);
       alert("Erro inesperado ao criar usuário!");
     }
-
-    const userId = data.user.id;//UUID do novo usuario
-
-      const { data: agendaData, error:agendaError} = await supabase
-      .from ('agenda')
-      .insert([{id_usuario: userId}]);
-
-      
   }
 }
+
 
 
 
