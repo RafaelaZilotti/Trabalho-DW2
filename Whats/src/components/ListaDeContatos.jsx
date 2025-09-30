@@ -34,13 +34,36 @@ function ListaDeContatos({ userId, novoContato }) {
     }
   }, [novoContato])
 
+  // excluir contato
+  async function Excluir(id) {
+    console.log("Tentando excluir contato com id_contato:", id)
+
+    const { error } = await supabase
+      .from('agenda')
+      .delete()
+      .eq('id_contato', id) // usa o nome certo da coluna
+
+    if (error) {
+      console.error("Erro ao deletar:", error.message)
+    } else {
+      console.log("Contato deletado com sucesso:", id)
+      // remove do estado sem precisar refazer a busca
+      setClone_lista(prev => prev.filter(c => c.id_contato !== id))
+    }
+  }
+
   return (
     <div>
       <ul>
         {clone_lista.map((contato) => (
-          <li key={contato.id}>
+          <li key={contato.id_contato}>
             {contato.nome}<br />
             {contato.numero}
+            <button>Mensagem</button>
+            <button>Editar</button>
+            <button onClick={() => Excluir(contato.id_contato)}>
+              <img src="/lixo.png" alt="Excluir" />
+            </button>
           </li>
         ))}
       </ul>
