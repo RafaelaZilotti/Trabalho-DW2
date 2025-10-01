@@ -29,6 +29,9 @@ function Login(){
                     }
                 }
         
+                function EsqueceuSenha(){
+                    navigate(`/RecuperarSenha`)
+                }
 
     return(
             <>
@@ -37,8 +40,8 @@ function Login(){
                 <label>Email</label>
                 <input type="text" placeholder="usurario@gmail.com" value={EmailUsuario} onChange={(e)=>setEmailUsuario(e.target.value)}/>
                 <label>Senha</label>
-                <input type="text" placeholder="senha123" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)}/>
-                <button>esqueceu a senha?</button>
+                <input type="password" placeholder="senha123" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)}/>
+                <button onClick={EsqueceuSenha}>esqueceu a senha?</button>
                 <button onClick={EntrarUsuario}>Login</button>
                 <p>Novo usuário?</p>
                 <button onClick={() => navigate("/Singup")}>Singup</button>

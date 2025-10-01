@@ -56,7 +56,7 @@ async function CriarUsuario() {
             <label>Email</label>
             <input placeholder="fulano@gmail.com" type="text" value={EmailUsuario} onChange={(e)=>setEmailUsuario(e.target.value)}/>
             <label>Senha</label>
-            <input placeholder="senha123" type="text" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)}/>
+            <input placeholder="senha123" type="password" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)}/>
             <button onClick={CriarUsuario}>Criar</button>
             <p>Já tem uma conta?</p>
             <button onClick={VoltarLogin}>Login</button>
