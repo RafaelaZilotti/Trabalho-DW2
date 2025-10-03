@@ -23,6 +23,22 @@ function AgendaDeContatos() {
     setNovoContato(null)
   }, [user])
 
+  function mascaraTelefone(valor){
+    valor = valor.replace(/\D/g, "")
+
+    if(valor.length > 2 && valor.length <= 7){
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2)}`
+      } else if( valor.length > 7){
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,10)}`
+      }
+
+      return valor
+  }
+
+  function handleTelefoneChange(e){
+    setNumero_contato(mascaraTelefone(e.target.value))
+  }
+
   // salvar contato
   async function SalvarAgenda() {
     if (nome_contato !== "" && numero_contato !== "" && user) {
@@ -67,7 +83,8 @@ function AgendaDeContatos() {
         placeholder='Número'
         type='text'
         value={numero_contato}
-        onChange={(e) => setNumero_contato(e.target.value)}
+        maxLength={16}
+        onChange={handleTelefoneChange}
       />
 
       <button onClick={SalvarAgenda}>
