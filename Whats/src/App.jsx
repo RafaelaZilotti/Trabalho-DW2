@@ -16,7 +16,7 @@ function App() {
     if(valor.length > 2 && valor.length <= 7){
         valor = `(${valor.slice(0,2)}) ${valor.slice(2)}`
       } else if( valor.length > 7){
-        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)} - ${valor.slice(6,10)}`
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,10)}`
       }
 
       return valor
