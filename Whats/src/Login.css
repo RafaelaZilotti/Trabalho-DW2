@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(203, 248, 233);
+}
+
+#imagem {
+  height: auto;
+  width: 100px;
+  position: absolute;
+  top: 75px;
+}
+
+#titulo {
+  color: rgb(89, 89, 89);
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+#subtitulo {
+  color: rgb(89, 89, 89);
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.box {
+  display: flex;
+  height: 40vh;
+  width: 30vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  background-color: transparent;
+  border: transparent;
+  margin-left: 210px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: rgb(113, 113, 113);
+}
+
+.link:hover {
+  color: rgb(35, 199, 44);
+}
+
+.boxtext {
+  height: 50px;
+  width: 350px;
+  border: solid 2px rgb(138, 138, 138);
+  border-radius: 9px;
+  background-color: aliceblue;
+  margin-top: 20px;
+}
+
+.boxbutton {
+  height: 50px;
+  width: 350px;
+  border: solid 2px transparent;
+  font-size: 20px;
+  font-family: "Poiret One", sans-serif;
+  border-radius: 9px;
+  background-color: rgb(44, 182, 69);
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.boxbutton:hover{
+  transform: scale(1.05);
+  background-color: rgb(60, 226, 90);
+}
+
+.boxfundo {
+  display: flex;
+  height: 63vh;
+  width: 30vw;
+  background-color: rgba(255, 255, 255, 0.359);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin-top: 90px;
+}
+.barra {
+  width: 29vw;        /* Largura da barra */
+  height: 4px;        /* Espessura da barra */
+  background-color: #f4f4f4; /* Cor da barra */
+  margin-top: 50px;
+}
+.registrar{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.link2{
+  background-color: transparent;
+  all: unset;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: rgb(36, 181, 40);
+}
+
+.link2:hover{
+  color:  rgb(89, 243, 94);
+}
+
+.gray{
+  color: gray;
+}

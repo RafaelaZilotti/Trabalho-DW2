@@ -51,7 +51,9 @@ function ListaDeContatos({ userId, novoContato }) {
       setClone_lista(prev => prev.filter(c => c.id_contato !== id))
     }
   }
-
+  function MandarMensagem(){
+    window.open(`https://wa.me/55${(contato.numero).replace(/\D/g, "")}`, "_blank")
+  }
   return (
     <div>
       <ul>
@@ -59,7 +61,7 @@ function ListaDeContatos({ userId, novoContato }) {
           <li key={contato.id_contato}>
             {contato.nome}<br />
             {contato.numero}
-            <button>Mensagem</button>
+            <button onClick={() => MandarMensagem(contato)}>Mensagem</button>
             <button>Editar</button>
             <button onClick={() => Excluir(contato.id_contato)}>
               <img src="/lixo.png" alt="Excluir" />

@@ -1,51 +1,80 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from './Bd/Supabase'
-function Login(){
-    const navigate = useNavigate()
-    const[EmailUsuario,setEmailUsuario] = useState("")
-    const[SenhaUsuario,setSenhaUsuario] = useState("")
+import { supabase } from "./Bd/Supabase";
+import './Login.css';
 
-            async function EntrarUsuario(){
-                if(EmailUsuario != ""){
-                    if(SenhaUsuario !=""){
-                        try{
-                            const { data, error } = await supabase.auth.signInWithPassword({
+
+
+function Login() {
+  const navigate = useNavigate();
+  const [EmailUsuario, setEmailUsuario] = useState("");
+  const [SenhaUsuario, setSenhaUsuario] = useState("");
+
+  async function EntrarUsuario() {
+    if (EmailUsuario !== "") {
+      if (SenhaUsuario !== "") {
+        try {
+          const { data, error } = await supabase.auth.signInWithPassword({
             email: EmailUsuario,
-            password: SenhaUsuario
-        });
+            password: SenhaUsuario,
+          });
 
-        if (error) {
-            alert("Erro ao fazer login: " + error.message);//Fazer tratamento de erro
-        } else {
-            const userId = data.user.id; // pega o ID do usuário logado
+          if (error) {
+            alert("Erro ao fazer login: " + error.message);
+          } else {
+            const userId = data.user.id;
             navigate(`/GeradorDeLink/${userId}`);
+          }
+        } catch (err) {
+          console.log(err);
+          alert("Erro inesperado");
         }
-    } catch (err) {
-        console.log(err);
-        alert("Erro inesperado");//Arrumar erros 
+      }
     }
-                        }
-                    }
-                }
-        
-                function EsqueceuSenha(){
-                    navigate(`/RecuperarSenha`)
-                }
+  }
 
-    return(
-            <>
-                <h1>Login</h1>
-                <p>Seja bem-vindo de volta! Porfavor faça login em sua conta</p>
-                <label>Email</label>
-                <input type="text" placeholder="usurario@gmail.com" value={EmailUsuario} onChange={(e)=>setEmailUsuario(e.target.value)}/>
-                <label>Senha</label>
-                <input type="password" placeholder="senha123" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)}/>
-                <button onClick={EsqueceuSenha}>esqueceu a senha?</button>
-                <button onClick={EntrarUsuario}>Login</button>
-                <p>Novo usuário?</p>
-                <button onClick={() => navigate("/Singup")}>Singup</button>
-            </>
-    )
+  function EsqueceuSenha() {
+    navigate(`/RecuperarSenha`);
+  }
+
+  return (
+    <div className="container">
+        <img src="perfil.png" id="imagem" alt="perfil" />
+        <div className="boxfundo">
+            <h1 id="titulo">Login</h1>
+            <p id="subtitulo">
+            Seja bem-vindo de volta! Por favor, faça login em sua conta
+            </p>
+            <div className="box">
+                <input
+                    className="boxtext"
+                    type="text"
+                    placeholder="usuario@gmail.com"
+                    value={EmailUsuario}
+                    onChange={(e) => setEmailUsuario(e.target.value)}
+                />
+                <input
+                    className="boxtext"
+                    type="password"
+                    placeholder="senha123"
+                    value={SenhaUsuario}
+                    onChange={(e) => setSenhaUsuario(e.target.value)}
+                />
+                <button onClick={EsqueceuSenha} className="link">
+                    esqueceu a senha?
+                </button>
+                <button onClick={EntrarUsuario} className="boxbutton">
+                    Login
+                </button>
+            </div>
+        </div>
+        <div class="barra"></div>
+      <div className="registrar">
+        <p className="gray">Novo usuário?</p>
+        <button onClick={() => navigate("/Singup")} className="link2">Signup</button>
+      </div>
+    </div>
+  );
 }
-export default Login
+
+export default Login;

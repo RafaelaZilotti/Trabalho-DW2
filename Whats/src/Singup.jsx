@@ -1,6 +1,8 @@
 import {useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { supabase } from './Bd/Supabase'
+import './Login.css';
+
 function Singup(){
 
   const navigate = useNavigate()
@@ -48,19 +50,26 @@ async function CriarUsuario() {
 
 
     return(
-        <>
-            <h1>Bem-Vindo ao WhatsHub</h1>
-            <p>Crie sua conta...</p>
-            <label>Nome</label>
-            <input placeholder="Fulano da Silva" type="text" value={NomeUsuario} onChange={(e)=>setNomeUsuario(e.target.value)} />
-            <label>Email</label>
-            <input placeholder="fulano@gmail.com" type="text" value={EmailUsuario} onChange={(e)=>setEmailUsuario(e.target.value)}/>
-            <label>Senha</label>
-            <input placeholder="senha123" type="password" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)}/>
-            <button onClick={CriarUsuario}>Criar</button>
-            <p>Já tem uma conta?</p>
-            <button onClick={VoltarLogin}>Login</button>
-        </>
+      <div className="container">
+        <img src="perfil.png" id="imagem" alt="perfil" />
+        <div className="boxfundo">
+          <h1 id="titulo">Sing Up</h1>
+          <p id="subtitulo">Crie sua conta...</p>
+
+          <div className="box">
+            <input placeholder="Fulano da Silva" type="text" value={NomeUsuario} onChange={(e)=>setNomeUsuario(e.target.value)} className="boxtext" />
+            <input placeholder="fulano@gmail.com" type="text" value={EmailUsuario} onChange={(e)=>setEmailUsuario(e.target.value)} className="boxtext"/>
+            <input placeholder="senha123" type="password" value={SenhaUsuario} onChange={(e)=>setSenhaUsuario(e.target.value)} className="boxtext"/>
+            <button onClick={CriarUsuario} className="boxbutton">Criar</button>
+          </div>
+          
+        </div>
+        <div class="barra"></div>
+        <div className="registrar">
+          <p className="gray">Já tem uma conta?</p>
+          <button onClick={VoltarLogin} className="link2">Login</button>
+        </div>
+      </div>
     )
 }
 export default Singup
