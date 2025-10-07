@@ -10,9 +10,25 @@ function App() {
   const[mensagem,setMensagem] = useState("")
   const[linkfinal,setLinkfinal] = useState("")
 
+  function mascaraTelefone(valor){
+    valor = valor.replace(/\D/g, "")
+
+    if(valor.length > 2 && valor.length <= 7){
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2)}`
+      } else if( valor.length > 7){
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,10)}`
+      }
+
+      return valor
+  }
+
+  function handleTelefoneChange(e){
+    setTelefone(mascaraTelefone(e.target.value))
+  }
+
   function Link(){
     if(telefone != ""){
-      setLinkfinal(`https://wa.me/55${telefone.replace(/\D/g, "")}?text=${encodeURIComponent(mensagem)}`)
+      setLinkfinal(`https://wa.me/55${telefone.replace(/\D/g,"")}?text=${encodeURIComponent(mensagem)}`)
     }
     
   }
@@ -27,7 +43,7 @@ function App() {
       <h2>Gerador de Links</h2>
       <p>Número do Whatsapp</p>
       <img src='/telefone.png' alt="Telefone"/>
-      <input type='text' placeholder='(xx)xxxxx-xxxx' value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+      <input type='text' placeholder='(xx)xxxxx-xxxx' value={telefone} maxLength={16} onChange={handleTelefoneChange} />
       
       <p>Mensagem (opcional)</p>
       <input type='text' placeholder='Digite sua mensagem aqui...' value={mensagem} onChange={(e) => setMensagem(e.target.value)}/>
