@@ -2,12 +2,14 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
 import ListaDeContatos from './ListaDeContatos'
+import './ListaDeContato.css'
 
 function AgendaDeContatos() {
   const [nome_contato, setNome_contato] = useState("")
   const [numero_contato, setNumero_contato] = useState("")
   const [user, setUser] = useState(null) // usuário logado
   const [novoContato, setNovoContato] = useState(null) // para avisar ListaDeContatos
+  const [contatoEdicao, setContatoEdicao] = useState(null) // contato sendo editado
 
   // pega usuário logado
   useEffect(() => {
@@ -65,6 +67,41 @@ function AgendaDeContatos() {
     }
   }
 
+  function handleEditarContato(contato) {
+
+    setContatoEdicao(contato)
+    setNome_contato(contato.nome)
+    setNumero_contato(contato.numero)
+    window.scrollTo(0, 0) // rola para o topo da página
+  }
+
+  async function AtualizarEdicao() {
+    if (!contatoEdicao) return
+
+    const error = await supabase
+      .from('agenda')
+      .update({
+        nome: nome_contato,
+        numero: numero_contato.replace(/\D/g, "")
+      })
+      .eq('id_contato', contatoEdicao.id_contato)
+      .select()
+
+    if (error) {
+      console.error("Erro ao atualizar:", error)
+    } else if (data && data.length > 0) {
+      console.log("Contato atualizado com sucesso!")
+      // Atualiza o contato na lista sem precisar refazer a busca
+      setNovoContato(data[0])
+      // Limpa o estado de edição
+      setContatoEdicao(null)
+      setNome_contato("")
+      setNumero_contato("")
+    }
+  };
+
+
+
   return (
     <>
       <img src='/usuario.png' alt="Usuário" />
@@ -87,14 +124,20 @@ function AgendaDeContatos() {
         onChange={handleTelefoneChange}
       />
 
+      {contatoEdicao ? (
+        <button onClick={AtualizarEdicao}>
+          <img src="/usuario.png" alt="" className='imagem'/> Atualizar Contato
+        </button>
+      ) : (
       <button onClick={SalvarAgenda}>
-        <img src="/usuario.png" alt="" /> Salvar na Agenda
+        <img src="/usuario.png" alt="" className='imagem'/> Salvar na Agenda
       </button>
+      )}
 
       <p>Seus Contatos</p>
-      <ListaDeContatos userId={user?.id} novoContato={novoContato} />
+      <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} />
     </>
   )
-}
+};
 
 export default AgendaDeContatos

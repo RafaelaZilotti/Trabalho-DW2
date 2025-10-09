@@ -1,8 +1,9 @@
 // ListaDeContatos.jsx
 import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
+import './ListaDeContato.css';
 
-function ListaDeContatos({ userId, novoContato }) {
+function ListaDeContatos({ userId, novoContato, onEditarContato }) {
   const [clone_lista, setClone_lista] = useState([])
 
   // função que busca contatos do usuário
@@ -29,7 +30,11 @@ function ListaDeContatos({ userId, novoContato }) {
 
   // adiciona novo contato sem refazer consulta
   useEffect(() => {
-    if (novoContato) {
+    if (novoContato){
+
+      //mudancas para poder editar o contato
+
+    } else {
       setClone_lista(prev => [...prev, novoContato])
     }
   }, [novoContato])
@@ -54,6 +59,11 @@ function ListaDeContatos({ userId, novoContato }) {
   function MandarMensagem(){
     window.open(`https://wa.me/55${(contato.numero).replace(/\D/g, "")}`, "_blank")
   }
+
+  function EditarContato(){
+
+  }
+
   return (
     <div>
       <ul>
@@ -62,9 +72,9 @@ function ListaDeContatos({ userId, novoContato }) {
             {contato.nome}<br />
             {contato.numero}
             <button onClick={() => MandarMensagem(contato)}>Mensagem</button>
-            <button>Editar</button>
+            <button onClick={() => onEditarContato(contato)}>Editar</button>
             <button onClick={() => Excluir(contato.id_contato)}>
-              <img src="/lixo.png" alt="Excluir" />
+              <img src="/lixo.png" alt="Excluir" className='imagem'/>
             </button>
           </li>
         ))}
