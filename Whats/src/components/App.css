@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.all {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 242, 242);
+}
+
+#imgwhats {
+  height: 60px;
+  width: auto;
+  padding-top: 20px;
+}
+
+#titulo {
+  color: rgb(73, 200, 92);
+  font-size: 50px;
+}
+
+#subtitulo {
+  color: rgb(94, 94, 94);
+  font-size: 25px;
+}
+
+.gerador{
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  background-color: rgb(255, 255, 255);
+  border: solid  rgb(221, 221, 221) 2px;
+  border-radius: 15px;
+  align-items: center;
+  background-color: aquamarine;
+  gap: 10px;
+
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.row2{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 500px;
+  background-color: aqua;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.head{
+  display: flex;
+  justify-content: center; /* centraliza horizontal */
+  align-items: center;     /* centraliza vertical */
+  width: 900px;
+  padding: 10px 20px;     /* espaço interno */
+  background-color: blueviolet;
+  height: 90px;            /* permite crescer se o texto ocupar mais de uma linha */
+  text-align: center;      /* centraliza o texto dentro da div */
+  margin-bottom: 50px;
+}
+#imggerador{
+  width: 27px;
+  height: auto;
+}
+#imgagenda{
+  width: 30px;
+  height: auto;
+}
+.row3{
+  display: flex;
+  align-items: center;     /* centraliza vertical */
+  width: 500px;
+  padding: 10px 20px;     /* espaço interno */
+  background-color: blueviolet;
+  height: 90px;            /* permite crescer se o texto ocupar mais de uma linha */
+  gap: 10px;
+  align-self: self-start;
+}
+.row4{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.titulo2{
+  font-size: 30px;
+}
+.tamanhofonte{
+  font-size: 20px;
+  font-weight:bold;
+  align-self: self-start;
+
+}
+.coluna{
+  display: flex;
+  flex-direction: column;
+}
+#telefoneicon{
+  width: 10px;
+  height: auto;
+  position: absolute;
+}
+#inputnumero{
+  padding-left: 40px;
+  width: 510px;
+  height: 50px;
+}
+
+#inputmensagem{
+  width: 510px;
+  padding-left: 10px;
+  height: 100px;
+}

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
 import ListaDeContatos from './ListaDeContatos'
-import './ListaDeContato.css'
+import './App.css'
 
 function AgendaDeContatos() {
   const [nome_contato, setNome_contato] = useState("")
@@ -106,33 +106,41 @@ function AgendaDeContatos() {
 
   return (
     <>
-      <img src='/usuario.png' alt="Usuário" />
-      <h3>Agenda de Contatos</h3>
+      <div className='row3'>
+        <img src='/usuario.png' alt="Usuário" id='imgagenda'/>
+        <h3 className='titulo2'>Agenda de Contatos</h3>
+      </div>
 
-      <p>Nome</p>
-      <input
-        placeholder='Nome do contato'
-        type='text'
-        value={nome_contato}
-        onChange={(e) => setNome_contato(e.target.value)}
-      />
+      <div className='row4'>
+        <div className='coluna'>
+          <p className='tamanhofonte'>Nome</p>
+          <input
+            placeholder='Nome do contato'
+            type='text'
+            value={nome_contato}
+            onChange={(e) => setNome_contato(e.target.value)}
+          />
 
-      <p>Número</p>
-      <input
-        placeholder='Número'
-        type='text'
-        value={numero_contato}
-        maxLength={16}
-        onChange={handleTelefoneChange}
-      />
+        </div>
+        <div className='coluna'>
+          <p className='tamanhofonte'>Número</p>
+          <input
+            placeholder='Número'
+            type='text'
+            value={numero_contato}
+            maxLength={16}
+            onChange={handleTelefoneChange}
+          />
+        </div>
 
+      </div>
       {contatoEdicao ? (
         <button onClick={AtualizarEdicao}>
-          <img src="/usuario.png" alt="" className='imagem'/> Atualizar Contato
+          <img src="/usuario.png" alt="" /> Atualizar Contato
         </button>
       ) : (
       <button onClick={SalvarAgenda}>
-        <img src="/usuario.png" alt="" className='imagem'/> Salvar na Agenda
+        <img src="/usuario.png" alt="" /> Salvar na Agenda
       </button>
       )}
 
