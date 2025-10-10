@@ -33,6 +33,10 @@ function App() {
     }
   }
 
+  function handleMandarMensagem(contato){
+    setTelefone(mascaraTelefone(contato.numero))
+  }
+
   return (
     <div className="all">
         <div className="row2">
@@ -88,7 +92,7 @@ function App() {
 
         </div>
         <div className="gerador">
-          <AgendaDeContatos />
+          <AgendaDeContatos onMandarMensagem={handleMandarMensagem}/>
         </div>
       </div>
 

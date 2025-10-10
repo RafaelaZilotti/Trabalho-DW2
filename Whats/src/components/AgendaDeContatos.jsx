@@ -4,7 +4,7 @@ import { supabase } from '../Bd/Supabase'
 import ListaDeContatos from './ListaDeContatos'
 import './App.css'
 
-function AgendaDeContatos() {
+function AgendaDeContatos({ onMandarMensagem }) {
   const [nome_contato, setNome_contato] = useState("")
   const [numero_contato, setNumero_contato] = useState("")
   const [user, setUser] = useState(null) // usuário logado
@@ -31,13 +31,11 @@ function AgendaDeContatos() {
     if(valor.length > 2 && valor.length <= 7){
         valor = `(${valor.slice(0,2)}) ${valor.slice(2)}`
       } else if( valor.length > 7){
-        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,10)}`
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,11)}`
       }
 
       return valor
   }
-
-  adfffdfda
 
   function handleTelefoneChange(e){
     setNumero_contato(mascaraTelefone(e.target.value))
@@ -100,56 +98,54 @@ function AgendaDeContatos() {
       setNome_contato("")
       setNumero_contato("")
 
-      
     }
+    window.location.reload()
   };
-
-
 
   return (
     <>
       <div className='row3'>
-        <img src='/usuario.png' alt="Usuário" id='imgagenda'/>
-        <h3 className='titulo2'>Agenda de Contatos</h3>
+        <img src="/usuario.png" alt="Usuário" id='imgagenda'/>
+        <h3 className='titulo2'>Agenda de contatos</h3>
       </div>
-
       <div className='row4'>
         <div className='coluna'>
           <p className='tamanhofonte'>Nome</p>
-          <input
+          <input 
             placeholder='Nome do contato'
-            type='text'
+            type="text"
             value={nome_contato}
-            onChange={(e) => setNome_contato(e.target.value)}
-          />
-
-        </div>
-        <div className='coluna'>
-          <p className='tamanhofonte'>Número</p>
-          <input
-            placeholder='Número'
-            type='text'
-            value={numero_contato}
-            maxLength={16}
-            onChange={handleTelefoneChange}
+            onChange={(e)=> setNome_contato(e.target.value)}
           />
         </div>
-
       </div>
+      <div className='coluna'>
+        <p className='tamanhofonte'>Numero</p>
+        <input 
+          placeholder='Numero'
+          type="text" 
+          value={numero_contato}
+          maxLength={17}
+          onChange={handleTelefoneChange}
+        />
+      </div>
+
       {contatoEdicao ? (
         <button onClick={AtualizarEdicao}>
           <img src="/usuario.png" alt="" /> Atualizar Contato
         </button>
       ) : (
-      <button onClick={SalvarAgenda}>
-        <img src="/usuario.png" alt="" /> Salvar na Agenda
-      </button>
+        <button onClick={SalvarAgenda}>
+          <img src="/usuario.png" alt="" /> Salvar na Agenda
+        </button>
       )}
 
       <p>Seus Contatos</p>
-      <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} />
+      <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} onMandarMensagem={onMandarMensagem}/>
+    
     </>
   )
-};
+
+}
 
 export default AgendaDeContatos
