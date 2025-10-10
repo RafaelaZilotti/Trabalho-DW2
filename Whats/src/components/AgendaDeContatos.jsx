@@ -37,6 +37,8 @@ function AgendaDeContatos({ onMandarMensagem }) {
       return valor
   }
 
+  adfffdfda
+
   function handleTelefoneChange(e){
     setNumero_contato(mascaraTelefone(e.target.value))
   }

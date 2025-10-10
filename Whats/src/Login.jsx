@@ -43,7 +43,7 @@ function Login() {
         <div className="boxfundo">
             <h1 id="titulo">Login</h1>
             <p id="subtitulo">
-            Seja bem-vindo de volta! Por favor, faça login em sua conta
+              Seja bem-vindo de volta! Por favor, faça login em sua conta
             </p>
             <div className="box">
                 <input
