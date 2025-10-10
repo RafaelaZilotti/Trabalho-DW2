@@ -32,12 +32,16 @@ function ListaDeContatos({ userId, novoContato, onEditarContato }) {
   useEffect(() => {
     if (novoContato){
 
-      //mudancas para poder editar o contato
-
-    } else {
-      setClone_lista(prev => [...prev, novoContato])
-    }
-  }, [novoContato])
+      setClone_lista(prev =>
+        {const existe = prev.some(c => c.id_contato === novoContato.id_contato )
+          if(existe){
+            return prev.map(c => c.id_contato === novoContato.id_contato ? novoContato : c)
+          } else {
+            return [...prev, novoContato]
+          }
+          
+        })
+  }}, [novoContato])
 
   // excluir contato
   async function Excluir(id) {

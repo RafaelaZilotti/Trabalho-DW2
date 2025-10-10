@@ -97,6 +97,8 @@ function AgendaDeContatos() {
       setContatoEdicao(null)
       setNome_contato("")
       setNumero_contato("")
+
+      
     }
   };
 
