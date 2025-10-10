@@ -1,7 +1,7 @@
 // ListaDeContatos.jsx
 import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
-import './ListaDeContato.css';
+import './App.css'
 
 function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensagem}) {
   const [clone_lista, setClone_lista] = useState([])
@@ -72,12 +72,13 @@ function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensage
             <button onClick={() => onMandarMensagem(contato)}>Mensagem</button>
             <button onClick={() => onEditarContato(contato)}>Editar</button>
             <button onClick={() => Excluir(contato.id_contato)}>
-              <img src="/lixo.png" alt="Excluir" className='imagem'/>
+              <img src="/lixo.png" alt="Excluir" />
             </button>
           </li>
         ))}
       </ul>
     </div>
+    
   )
 }
 
