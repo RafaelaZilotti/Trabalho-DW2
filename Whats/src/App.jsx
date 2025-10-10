@@ -16,7 +16,7 @@ function App() {
     if(valor.length > 2 && valor.length <= 7){
         valor = `(${valor.slice(0,2)}) ${valor.slice(2)}`
       } else if( valor.length > 7){
-        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,10)}`
+        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,11)}`
       }
 
       return valor
@@ -47,7 +47,7 @@ function App() {
       <h2>Gerador de Links</h2>
       <p>Número do Whatsapp</p>
       <img src='/telefone.png' alt="Telefone"/>
-      <input type='text' placeholder='(xx)xxxxx-xxxx' value={telefone} maxLength={16} onChange={handleTelefoneChange} />
+      <input type='text' placeholder='(xx)xxxxx-xxxx' value={telefone} maxLength={17} onChange={handleTelefoneChange} />
       
       <p>Mensagem (opcional)</p>
       <input type='text' placeholder='Digite sua mensagem aqui...' value={mensagem} onChange={(e) => setMensagem(e.target.value)}/>
