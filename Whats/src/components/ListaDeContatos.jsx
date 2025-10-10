@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
 import './ListaDeContato.css';
 
-function ListaDeContatos({ userId, novoContato, onEditarContato }) {
+function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensagem}) {
   const [clone_lista, setClone_lista] = useState([])
 
   // função que busca contatos do usuário
@@ -60,13 +60,7 @@ function ListaDeContatos({ userId, novoContato, onEditarContato }) {
       setClone_lista(prev => prev.filter(c => c.id_contato !== id))
     }
   }
-  function MandarMensagem(){
-    window.open(`https://wa.me/55${(contato.numero).replace(/\D/g, "")}`, "_blank")
-  }
 
-  function EditarContato(){
-
-  }
 
   return (
     <div>
@@ -75,7 +69,7 @@ function ListaDeContatos({ userId, novoContato, onEditarContato }) {
           <li key={contato.id_contato}>
             {contato.nome}<br />
             {contato.numero}
-            <button onClick={() => MandarMensagem(contato)}>Mensagem</button>
+            <button onClick={() => onMandarMensagem(contato)}>Mensagem</button>
             <button onClick={() => onEditarContato(contato)}>Editar</button>
             <button onClick={() => Excluir(contato.id_contato)}>
               <img src="/lixo.png" alt="Excluir" className='imagem'/>

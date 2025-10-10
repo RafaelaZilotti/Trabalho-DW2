@@ -33,6 +33,10 @@ function App() {
     
   }
 
+  function handleMandarMensagem(contato){
+    setTelefone(mascaraTelefone(contato.numero))
+  };
+
 
   return (
     <>
@@ -53,7 +57,8 @@ function App() {
       <button onClick={()=> navigator.clipboard.writeText(linkfinal)}><img src="/copiar.png" alt="Copiar"/></button>
       <button onClick={()=> window.open(linkfinal,"_blank")}><img src="/botao_abrir_whatsapp.png" alt="Abrir WhatsApp" /></button>
 
-      <AgendaDeContatos/>
+      <AgendaDeContatos onMandarMensagem={handleMandarMensagem}/>
+      
     </>
   );
 }

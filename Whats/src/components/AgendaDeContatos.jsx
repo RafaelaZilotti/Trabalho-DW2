@@ -4,7 +4,7 @@ import { supabase } from '../Bd/Supabase'
 import ListaDeContatos from './ListaDeContatos'
 import './ListaDeContato.css'
 
-function AgendaDeContatos() {
+function AgendaDeContatos({ onMandarMensagem }) {
   const [nome_contato, setNome_contato] = useState("")
   const [numero_contato, setNumero_contato] = useState("")
   const [user, setUser] = useState(null) // usuário logado
@@ -102,8 +102,6 @@ function AgendaDeContatos() {
     window.location.reload()
   };
 
-
-
   return (
     <>
       <img src='/usuario.png' alt="Usuário" />
@@ -137,7 +135,7 @@ function AgendaDeContatos() {
       )}
 
       <p>Seus Contatos</p>
-      <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} />
+      <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} onMandarMensagem={onMandarMensagem}/>
     </>
   )
 };
