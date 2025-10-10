@@ -78,6 +78,7 @@ function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensage
         ))}
       </ul>
     </div>
+    
   )
 }
 
