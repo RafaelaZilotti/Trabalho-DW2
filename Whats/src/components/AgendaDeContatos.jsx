@@ -98,8 +98,8 @@ function AgendaDeContatos() {
       setNome_contato("")
       setNumero_contato("")
 
-      
     }
+    window.location.reload()
   };
 
 
