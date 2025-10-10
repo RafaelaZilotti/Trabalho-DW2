@@ -54,7 +54,7 @@ async function CriarUsuario() {
         <img src="perfil.png" id="imagem" alt="perfil" />
         <div className="boxfundo">
           <h1 id="titulo">Sing Up</h1>
-          <p id="subtitulo">Crie sua conta...</p>
+          <p className="subtitulo">Crie sua conta...</p>
 
           <div className="box">
             <input placeholder="Fulano da Silva" type="text" value={NomeUsuario} onChange={(e)=>setNomeUsuario(e.target.value)} className="boxtext" />

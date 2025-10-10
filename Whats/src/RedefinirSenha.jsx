@@ -34,7 +34,7 @@ function RedefinirSenha(){
             <div className="container">
                 <div className="boxfundo">
                     <h1 id="titulo">Redefina sua senha:</h1>
-                    <p id="subtitulo">{MensagemSenha}</p>
+                    <p className="subtitulo">{MensagemSenha}</p>
                     <div className="box">
                         <input placeholder="Nova senha" type="password" value={senhaNova} onChange={(e)=>setSenhaNova(e.target.value)} className="boxtext"></input>
                         <input placeholder="Confirmar nova senha" type="password" value={confirmarSenhaNova} onChange={(e)=>setConfirmarSenhaNova(e.target.value)} className="boxtext"></input>

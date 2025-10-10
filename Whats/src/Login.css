@@ -28,13 +28,7 @@
   margin-top: 20px;
 }
 
-#subtitulo {
-  color: rgb(89, 89, 89);
-  font-size: 15px;
-  margin-top: 20px;
-}
-
-#subtituloverde {
+.subtituloverde {
   color: rgb(29, 158, 37);
   font-size: 15px;
   margin-top: 20px;
@@ -137,7 +131,7 @@
   height: 30px;
   width: auto;
   position: absolute;
-  top: 467px;
+  top: 473px;
   right: 873px;
 }
 
@@ -158,4 +152,10 @@
   width: 110px;
   height: auto;
   top: 130px;
+}
+
+.subtitulo {
+  color: rgb(89, 89, 89);
+  font-size: 15px;
+  margin-top: 20px;
 }

@@ -27,7 +27,7 @@ function RecuperarSenha(){
             <div className="boxfundo">
                 <img src="whatsapp2.png" id="whatsapp2"></img>
                 <h1 id="titulo">Recuperar Senha</h1>
-                <p id={IdTela}>{MensagemTela}</p>
+                <p className={IdTela}>{MensagemTela}</p>
                 <div id="espaco"></div>
                 <img src="e-mail.png" id="mail"></img>
                 <input className="boxtext2" type="text" placeholder="fulano@gmail.com" value={EmailEsqueceuSenha} onChange={(e)=> setEmailEsqueceuSenha(e.target.value)}/>

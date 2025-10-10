@@ -42,7 +42,7 @@ function Login() {
         <img src="perfil.png" id="imagem" alt="perfil" />
         <div className="boxfundo">
             <h1 id="titulo">Login</h1>
-            <p id="subtitulo">
+            <p className="subtitulo">
               Seja bem-vindo de volta! Por favor, faça login em sua conta
             </p>
             <div className="box">
