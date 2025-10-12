@@ -66,14 +66,16 @@ function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensage
     <div>
       <ul>
         {clone_lista.map((contato) => (
-          <li key={contato.id_contato}>
-            {contato.nome}<br />
-            {contato.numero}
-            <button onClick={() => onMandarMensagem(contato)}>Mensagem</button>
-            <button onClick={() => onEditarContato(contato)}>Editar</button>
-            <button onClick={() => Excluir(contato.id_contato)}>
-              <img src="/lixo.png" alt="Excluir" />
-            </button>
+          <li key={contato.id_contato} className='licontatos'>
+            <div id='column2'>
+              <p id='nomecontato' >{contato.nome}</p>
+              <p id='numerocontato'>{contato.numero}</p>
+            </div>
+              <button onClick={() => onMandarMensagem(contato)} id='buttonmensagem'>Mensagem</button>
+              <button onClick={() => onEditarContato(contato)} className='buttoneditar'>Editar</button>
+              <button onClick={() => Excluir(contato.id_contato)} className='buttondelete'>
+                <img src="/lixo.png" alt="Excluir" className='buttondelete' />
+              </button>
           </li>
         ))}
       </ul>

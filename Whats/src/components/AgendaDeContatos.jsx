@@ -110,38 +110,44 @@ function AgendaDeContatos({ onMandarMensagem }) {
       </div>
       <div className='row4'>
         <div className='coluna'>
-          <p className='tamanhofonte'>Nome</p>
+          <p className='tamanhofonte2'>Nome</p>
           <input 
+            className='inputpequeno'
             placeholder='Nome do contato'
             type="text"
             value={nome_contato}
             onChange={(e)=> setNome_contato(e.target.value)}
           />
         </div>
-      </div>
-      <div className='coluna'>
-        <p className='tamanhofonte'>Numero</p>
-        <input 
-          placeholder='Numero'
-          type="text" 
-          value={numero_contato}
-          maxLength={17}
-          onChange={handleTelefoneChange}
-        />
+      
+        <div className='coluna'>
+          <p className='tamanhofonte2'>Número</p>
+          <input 
+            className='inputpequeno'
+            placeholder='Número'
+            type="text" 
+            value={numero_contato}
+            maxLength={17}
+            onChange={handleTelefoneChange}
+          />
+        </div>
       </div>
 
       {contatoEdicao ? (
-        <button onClick={AtualizarEdicao}>
-          <img src="/usuario.png" alt="" /> Atualizar Contato
+        <button onClick={AtualizarEdicao}  className='buttonsalvaragenda'>
+          <img src="/usuario.png" className='perfilimagem' /> Atualizar Contato
         </button>
       ) : (
-        <button onClick={SalvarAgenda}>
-          <img src="/usuario.png" alt="" /> Salvar na Agenda
+        <button onClick={SalvarAgenda} className='buttonsalvaragenda'>
+          <img src="/usuario.png" className='perfilimagem'/> Salvar na Agenda
         </button>
       )}
 
-      <p>Seus Contatos</p>
-      <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} onMandarMensagem={onMandarMensagem}/>
+      <p className='tamanhofonte' >Seus Contatos</p>
+      <div>
+        <ListaDeContatos userId={user?.id} novoContato={novoContato} onEditarContato={handleEditarContato} onMandarMensagem={onMandarMensagem}/>
+      </div>
+    
     
     </>
   )

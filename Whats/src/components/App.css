@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(245, 242, 242);
+  background-color: rgb(244, 244, 244);
 }
 
 #imgwhats {
@@ -35,10 +35,9 @@
   flex-direction: column;
   width: 40vw;
   background-color: rgb(255, 255, 255);
-  border: solid  rgb(221, 221, 221) 2px;
+  border: solid  rgb(233, 233, 233) 2px;
   border-radius: 15px;
   align-items: center;
-  background-color: aquamarine;
   gap: 10px;
 
 }
@@ -52,10 +51,10 @@
   flex-direction: row;
   height: 50px;
   width: 500px;
-  background-color: aqua;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 20px;
 }
 .head{
   display: flex;
@@ -63,7 +62,6 @@
   align-items: center;     /* centraliza vertical */
   width: 900px;
   padding: 10px 20px;     /* espaço interno */
-  background-color: blueviolet;
   height: 90px;            /* permite crescer se o texto ocupar mais de uma linha */
   text-align: center;      /* centraliza o texto dentro da div */
   margin-bottom: 50px;
@@ -81,16 +79,17 @@
   align-items: center;     /* centraliza vertical */
   width: 500px;
   padding: 10px 20px;     /* espaço interno */
-  background-color: blueviolet;
   height: 90px;            /* permite crescer se o texto ocupar mais de uma linha */
   gap: 10px;
   align-self: self-start;
+  margin-left: 30px;
 }
 .row4{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 .titulo2{
   font-size: 30px;
@@ -99,25 +98,217 @@
   font-size: 20px;
   font-weight:bold;
   align-self: self-start;
-
+  margin-left: 45px;
+}
+.tamanhofonte2{
+  font-size: 20px;
+  font-weight:bold;
+  align-self: self-start;
+  margin-left: 5px;
 }
 .coluna{
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 #telefoneicon{
-  width: 10px;
+  width: 15px;
   height: auto;
   position: absolute;
+  top: 361px;
+  left: 176px;
 }
 #inputnumero{
-  padding-left: 40px;
+  padding-left: 43px;
   width: 510px;
   height: 50px;
+  border: solid  rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  background-color: rgb(246, 245, 245);
 }
 
 #inputmensagem{
   width: 510px;
   padding-left: 10px;
   height: 100px;
+  border: solid  rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  background-color: rgb(246, 245, 245);
+}
+
+.inputpequeno{
+  width: 245px;
+  height: 50px;
+  border: solid  rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  padding-left: 15px;
+  background-color: rgb(246, 245, 245);
+}
+
+.buttongreen{
+  background-color: transparent;
+  width: 510px;
+  height: auto;
+  border: transparent 2px solid;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+.buttongreen:hover{
+  transform: scale(1.02);
+}
+.linkgerado{
+  width: 510px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  border: solid rgb(221, 221, 221) 1px ;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(246, 245, 245);
+}
+.copiarlink{
+  display: flex;
+  width: 450px;
+  height: 50px;
+  margin-top: 15px;
+  gap: 10px;
+}
+.buttoncopiarlink{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  background-color: white;
+}
+.buttoncopiarlink:hover{
+  transform: scale(1.05);
+}
+.buttonabrirwhats{
+  width: 450px;
+  height: auto;
+  background-color: transparent;
+  border: transparent 2px solid;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+.buttonabrirwhats:hover{
+  transform: scale(1.02);
+}
+.plink{
+  width: 380px;
+  height: 50px;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  padding:15px;
+  background-color: white;
+}
+.tamanhofontelink{
+  font-size: 20px;
+  font-weight:bold;
+  align-self: self-start;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.perfilimagem{
+  height: auto;
+  width: 20px;
+  position: absolute;
+  top: 25%;
+  left:33%;
+}
+.buttonsalvaragenda{
+  width: 510px;
+  height: 50px;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 550;
+  margin-top: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+
+.buttonsalvaragenda:hover{
+  transform: scale(1.04);
+}
+.licontatos{
+  width: 510px;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  background-color: rgb(239, 239, 239);
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  height: 70px;
+  justify-content: end;
+  align-items: center;
+  padding-right: 20px;
+  margin-top: 7px;
+}
+#buttonmensagem{
+  width: 95px;
+  height: 40px;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  margin-right: 5px;
+  font-weight: 510;
+  transition: transform 0.2s ease;
+  background-color: white;
+}
+#buttonmensagem:hover{
+    transform: scale(1.06);
+    color: rgb(25, 149, 25);
+    font-weight: 600;
+}
+.buttondelete{
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  background-color: white;
+}
+.buttondelete:hover{
+  transform: scale(1.06);
+}
+.buttoneditar{
+  width: 55px;
+  height: 40px;
+  border: solid rgb(221, 221, 221) 1px;
+  border-radius: 10px;
+  margin-right: 5px;
+  font-weight: 510;
+  transition: transform 0.2s ease;
+  background-color: white;
+}
+.buttoneditar:hover{
+  transform: scale(1.06);
+  color: rgb(25, 149, 25);
+  font-weight: 600;
+}
+#column2{
+  display:flex;
+  flex-direction: column;
+  margin-right: auto;
+  padding-left: 15px;
+}
+#nomecontato{
+  font-size: 15px;
+  font-weight: 600;
+}
+#numerocontato{
+  color: gray;
 }

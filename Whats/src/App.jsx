@@ -61,7 +61,7 @@ function App() {
           <input
             id="inputnumero"
             type='text'
-            placeholder='(xx)xxxxx-xxxx'
+            placeholder='(xx) xxxxx-xxxx'
             value={telefone}
             maxLength={16}
             onChange={handleTelefoneChange}
@@ -77,19 +77,23 @@ function App() {
           />
 
           <button onClick={gerarLink} className="buttongreen">
-            <img src="/botao_preparar_mensagem.png" alt="Preparar"/>
+            <img src="/botao_preparar_mensagem.png" alt="Preparar" className="buttongreen"/>
           </button>
+          <div className="linkgerado">
+            <p className="tamanhofontelink">Link gerado: </p>
+            <div className="copiarlink">
+              <p className="plink">{linkfinal}</p>
 
-          <p>Link gerado: {linkfinal}</p>
+              <button onClick={() => navigator.clipboard.writeText(linkfinal)} className="buttoncopiarlink">
+                <img src="/copiar.png" alt="Copiar"  className="buttoncopiarlink"/>
+              </button>
+            </div>
 
-          <button onClick={() => navigator.clipboard.writeText(linkfinal)}>
-            <img src="/copiar.png" alt="Copiar" />
-          </button>
+            <button onClick={() => window.open(linkfinal, "_blank")} className="buttonabrirwhats" >
+              <img src="/botao_abrir_whatsapp.png" alt="Abrir WhatsApp" className="buttonabrirwhats"/>
+            </button>
 
-          <button onClick={() => window.open(linkfinal, "_blank")}>
-            <img src="/botao_abrir_whatsapp.png" alt="Abrir WhatsApp" />
-          </button>
-
+          </div>
         </div>
         <div className="gerador">
           <AgendaDeContatos onMandarMensagem={handleMandarMensagem}/>
