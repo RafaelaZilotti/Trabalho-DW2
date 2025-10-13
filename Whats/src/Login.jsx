@@ -49,7 +49,7 @@ function Login() {
                 <input
                     className="boxtext"
                     type="text"
-                    placeholder="usuario@gmail.com"
+                    placeholder="fulano@gmail.com"
                     value={EmailUsuario}
                     onChange={(e) => setEmailUsuario(e.target.value)}
                 />

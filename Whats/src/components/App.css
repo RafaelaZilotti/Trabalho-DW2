@@ -18,11 +18,18 @@
   height: 60px;
   width: auto;
   padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 #titulo {
   color: rgb(73, 200, 92);
   font-size: 50px;
+}
+#titulogradiente {
+  background: linear-gradient(269deg,rgba(8, 120, 40, 1) 0%, rgb(108, 208, 46) 100%);
+  font-size: 50px;
+  background-clip: text;
+  color: transparent;
 }
 
 #subtitulo {

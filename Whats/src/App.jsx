@@ -15,7 +15,7 @@ function App() {
     if (valor.length > 2 && valor.length <= 7) {
       valor = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
     } else if (valor.length > 7) {
-      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 6)}-${valor.slice(6, 10)}`;
+      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 6)}-${valor.slice(6, 11)}`;
     }
 
     return valor;
@@ -41,7 +41,7 @@ function App() {
     <div className="all">
         <div className="row2">
           <img src="/whatsapp.png" alt="Logo" id="imgwhats" />
-          <h1 id="titulo">WhatsHub</h1>
+          <h1 id="titulogradiente">WhatsHub</h1>
         </div>
       <div className="head">
         <p id="subtitulo">
@@ -63,7 +63,7 @@ function App() {
             type='text'
             placeholder='(xx) xxxxx-xxxx'
             value={telefone}
-            maxLength={16}
+            maxLength={18}
             onChange={handleTelefoneChange}
           />
 
