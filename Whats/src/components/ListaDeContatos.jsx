@@ -61,6 +61,20 @@ function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensage
     }
   }
 
+    function mascaraTelefone(valor) {
+    valor = valor.replace(/\D/g, "");
+    
+    if (valor.length > 2 && valor.length <= 7) {
+      valor = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
+    } else if (valor.length > 7 && valor.length <11) {
+      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 6)}-${valor.slice(6, 11)}`;
+    } else if (valor.length >= 11){
+      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7, 12)}`;
+    }
+  
+    return valor;
+  }
+
 
   return (
     <div>
@@ -69,7 +83,7 @@ function ListaDeContatos({ userId, novoContato, onEditarContato, onMandarMensage
           <li key={contato.id_contato} className='licontatos'>
             <div id='column2'>
               <p id='nomecontato' >{contato.nome}</p>
-              <p id='numerocontato'>{contato.numero}</p>
+              <p id='numerocontato'>{mascaraTelefone(contato.numero)}</p>
             </div>
               <button onClick={() => onMandarMensagem(contato)} id='buttonmensagem'>Mensagem</button>
               <button onClick={() => onEditarContato(contato)} className='buttoneditar'>Editar</button>
