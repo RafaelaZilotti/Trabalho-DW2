@@ -4,6 +4,7 @@
 
 **Aplicação hospedada**
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fface676-36eb-4aa6-a92e-9ce26617b222/deploy-status)](https://app.netlify.com/projects/eclectic-zabaione-294488/deploys)
 
 ---
 
@@ -26,7 +27,7 @@ O sistema permite:
 - **React.js (vite)** - Interface dinâmica e responsiva
 - **Supabase** - Banco de dados e autenticação
 - **CSS** - Estilizacao
-- **** - Hospedagem
+- **Netify** - Hospedagem
 
 ---
 
