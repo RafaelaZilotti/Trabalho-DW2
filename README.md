@@ -9,7 +9,15 @@
 
 ## Sobre o projeto
 
+O **WhatsHub** é uma aplicação web desenvolvida em **React.js** com integração ao **Supabase**, criada para facilitar o envio de mensagens via WhatsApp e o gerenciamento de contatos pessoais.
 
+O sistema permite:
+- Gerar **links automáticos** de conversa no WhatsApp.  
+- Criar e gerenciar uma **agenda de contatos** pessoal.  
+- Editar e excluir contatos diretamente no banco de dados.  
+- Cada usuário possui **seu próprio login** e **agenda individual**.  
+
+> O projeto foi criado com o objetivo de simplificar o processo de iniciar conversas no WhatsApp, sem precisar salvar números manualmente, mantendo tudo organizado por usuário.
 
 ---
 
@@ -78,6 +86,8 @@ A agenda de contatos é exclusiva para cada usuário logado.
 Assim ao usuário abrir a aplicação ele só verá seus próprios contatos, que são atrelados ao id de usuário
 
 ### Motivo da implementação
+
+Foi feito estas implementações com o objetivo de fornecer privacidade para os dados de cada usuário e criar uma periência personalizada para cada indivíduo.
 
 ---
 
