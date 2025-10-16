@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../Bd/Supabase'
 import ListaDeContatos from './ListaDeContatos'
+import { mascaraTelefone } from '../utils/mascaraTelefone'
 import './App.css'
 
 function AgendaDeContatos({ onMandarMensagem }) {
@@ -24,20 +25,6 @@ function AgendaDeContatos({ onMandarMensagem }) {
   useEffect(() => {
     setNovoContato(null)
   }, [user])
-
-  function mascaraTelefone(valor){
-    valor = valor.replace(/\D/g, "")
-
-    if(valor.length > 2 && valor.length <= 7){
-        valor = `(${valor.slice(0,2)}) ${valor.slice(2)}`
-      } else if( valor.length > 7 && valor.length < 11){
-        valor = `(${valor.slice(0,2)}) ${valor.slice(2,6)}-${valor.slice(6,11)}`
-      } else if (valor.length >= 11){
-      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7, 12)}`;
-      }
-
-      return valor
-  }
 
   function handleTelefoneChange(e){
     setNumero_contato(mascaraTelefone(e.target.value))
@@ -73,7 +60,7 @@ function AgendaDeContatos({ onMandarMensagem }) {
 
     setContatoEdicao(contato)
     setNome_contato(contato.nome)
-    setNumero_contato(contato.numero)
+    setNumero_contato(mascaraTelefone(contato.numero))
     window.scrollTo(0, 0) // rola para o topo da página
   }
 

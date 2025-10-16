@@ -1,7 +1,9 @@
 import { useState } from "react";
 import AgendaDeContatos from './components/AgendaDeContatos';
 import { useParams } from "react-router-dom";
-import './components/App.css'
+import { mascaraTelefone } from "./utils/mascaraTelefone";
+import './components/App.css';
+
 
 function App() {
 
@@ -9,19 +11,6 @@ function App() {
   const [mensagem, setMensagem] = useState("");
   const [linkfinal, setLinkfinal] = useState("");
 
-  function mascaraTelefone(valor) {
-    valor = valor.replace(/\D/g, "");
-
-    if (valor.length > 2 && valor.length <= 7) {
-      valor = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
-    } else if (valor.length > 7 && valor.length < 11) {
-      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 6)}-${valor.slice(6, 11)}`;
-    } else if (valor.length >= 11){
-      valor = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7, 12)}`;
-    }
-
-    return valor;
-  }
 
   function handleTelefoneChange(e) {
     setTelefone(mascaraTelefone(e.target.value));
