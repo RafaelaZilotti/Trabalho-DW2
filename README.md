@@ -1,0 +1,85 @@
+# WhatsHub - Gerador de Links e Agenda de contatos
+
+## Aceso a Aplicação
+
+**Aplicação hospedada**
+
+
+---
+
+## Sobre o projeto
+
+
+
+---
+
+## Tecnologias Utilizadas
+
+- **React.js (vite)** - Interface dinâmica e responsiva
+- **Supabase** - Banco de dados e autenticação
+- **CSS** - Estilizacao
+- **** - Hospedagem
+
+---
+
+## Como executar localmente
+
+### 1. Clonar repositorio
+
+```bash
+git clone https://github.com/RafaelaZilotti/Trabalho-DW2
+cd Whats
+```
+
+### 2. Instalar dependências
+
+Ao colocar os códigos abaixo no terminal as dependências do react, supabase e do router serão instaladas
+
+```bash
+npm install
+npm install @supabase/supabase-js
+npm install react-router-dom
+```
+
+### 3. Criar o aquivo .env
+
+Na raiz do projeto deve-se criar um arquivo .env com as variáveis de ambiente do supabase
+
+``` .env
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+```
+
+### 4. Rodar o projeto
+
+Ao enviar o código abaixo no terminal o aplicativo estará disponível no link fornecido
+
+```bash
+npm run dev
+```
+
+---
+
+## Funcionalidade extra
+
+### Login e Agenda individual
+
+#### Login com Supabase Auth
+
+A aplicação conta com sistema de autenticação de usuários, desenvolvido com o Supabase Auth.
+Cada usuário pode criar uma conta (email e senha) e fazer login.
+O Supabase retorna um objeto user contendo o ID único do usuário logado (user.id).
+
+Esse ID é usado para relacionar cada contato a um usuário específico no banco de dados.
+
+#### Agenda individual
+
+A agenda de contatos é exclusiva para cada usuário logado.
+Assim ao usuário abrir a aplicação ele só verá seus próprios contatos, que são atrelados ao id de usuário
+
+### Motivo da implementação
+
+## Criadoras do Projeto
+
+- Daniela Rodler Cordeiro
+- Rafaela Zilotti da Silva
