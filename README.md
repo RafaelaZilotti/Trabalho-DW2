@@ -70,9 +70,7 @@ npm run dev
 
 ## Funcionalidade extra
 
-### Login e Agenda individual
-
-#### Login com Supabase Auth
+### Login com Supabase Auth
 
 A aplicação conta com sistema de autenticação de usuários, desenvolvido com o Supabase Auth.
 Cada usuário pode criar uma conta (email e senha) e fazer login.
@@ -80,7 +78,7 @@ O Supabase retorna um objeto user contendo o ID único do usuário logado (user.
 
 Esse ID é usado para relacionar cada contato a um usuário específico no banco de dados.
 
-#### Agenda individual
+### Agenda individual
 
 A agenda de contatos é exclusiva para cada usuário logado.
 Assim ao usuário abrir a aplicação ele só verá seus próprios contatos, que são atrelados ao id de usuário
