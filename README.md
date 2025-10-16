@@ -46,8 +46,8 @@ npm install react-router-dom
 Na raiz do projeto deve-se criar um arquivo .env com as variáveis de ambiente do supabase
 
 ``` .env
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
+VITE_SUPABASE_URL=https://therxxqixnxbkhjqwpdz.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRoZXJ4eHFpeG54YmtoanF3cGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgzMDExMDIsImV4cCI6MjA3Mzg3NzEwMn0.ek9K0WOPR5sSo6-EhE8IWmH3-WYgr5OYaEkZaIC0TsQ
 ```
 
 ### 4. Rodar o projeto
@@ -78,6 +78,8 @@ A agenda de contatos é exclusiva para cada usuário logado.
 Assim ao usuário abrir a aplicação ele só verá seus próprios contatos, que são atrelados ao id de usuário
 
 ### Motivo da implementação
+
+---
 
 ## Criadoras do Projeto
 
