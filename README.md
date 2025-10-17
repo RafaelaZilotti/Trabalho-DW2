@@ -4,7 +4,7 @@
 
 **Aplicação hospedada**
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fface676-36eb-4aa6-a92e-9ce26617b222/deploy-status)](https://app.netlify.com/projects/eclectic-zabaione-294488/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fface676-36eb-4aa6-a92e-9ce26617b222/deploy-status)](https://app.netlify.com/projects/whatshub-daniela-rafaela/deploys)
 
 ---
 
