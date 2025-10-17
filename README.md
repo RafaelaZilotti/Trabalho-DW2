@@ -27,7 +27,7 @@ O sistema permite:
 - **React.js (vite)** - Interface dinâmica e responsiva
 - **Supabase** - Banco de dados e autenticação
 - **CSS** - Estilizacao
-- **Netify** - Hospedagem
+- **Netlify** - Hospedagem
 
 ---
 
